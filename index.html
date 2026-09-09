@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID VERIFY</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <i class="fa-shield-halved fa-solid logo-icon"></i>
+      <span>ID VERIFY</span>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Profile</a>
+      <a href="#">Help</a>
+      <button class="btn-logout" type="button">Log Out</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      
+      <div class="steps-container">
+        <div class="step-number">1</div>
+        <div class="step-line"></div>
+        <div class="step-number inactive">2</div>
+        <div class="step-line"></div>
+        <div class="step-number inactive">3</div>
+      </div>
+
+      <h1 class="card-title">UPLOAD DOCUMENT</h1>
+
+     
+      <div class="section">
+        <label for="document-type" class="step-label">Step 1: Select Document Type</label>
+        <div class="select-wrapper">
+          <select id="document-type" class="select-box">
+            <option value="aadhaar">🪪 Aadhaar Card</option>
+            <option value="passport">📖 Passport</option>
+            <option value="driver_license">🪪 Driver's License</option>
+            <option value="pan_card">💳 PAN Card</option>
+          </select>
+          <i class="fa-solid fa-chevron-down select-arrow"></i>
+        </div>
+      </div>
+
+      
+      <div class="section">
+        <span class="step-label">Step 2: Upload Selfie Photo</span>
+        <div class="selfie-container">
+          
+        
+          <div class="avatar-wrapper">
+            <i class="fa-regular fa-user avatar-icon" id="selfie-icon"></i>
+            <img id="selfie-preview" src="" alt="Selfie Preview" class="selfie-img-preview">
+            <div class="camera-badge">
+              <i class="fa-solid fa-camera"></i>
+            </div>
+          </div>
+
+          <div class="selfie-actions">
+            <div class="selfie-subtitle">Upload or Capture Selfie</div>
+            
+            
+            <button class="btn-capture" id="btn-capture-selfie" type="button">
+              <i class="fa-solid fa-camera"></i> Capture Selfie
+            </button>
+
+          
+            <input type="file" id="selfie-file-input" accept="image/*" capture="user" style="display: none;">
+            <label for="selfie-file-input" class="btn-upload-text">
+              <i class="fa-solid fa-folder-open"></i> Upload Image
+            </label>
+            
+            <div class="supported-text">Supported: PNG, JPG, JPEG, Max 5MB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <span class="step-label">Step 3: Upload Document Image</span>
+        
+        <label for="id-file-input" class="upload-box" id="drop-zone">
+          <input type="file" id="id-file-input" class="hidden-file-input" accept=".png, .jpg, .jpeg, .pdf">
+          <i class="fa-regular fa-file-lines upload-icon"></i>
+          <div class="upload-text" id="upload-status-text">
+            Drag & drop your ID Image here, or <span>[Browse File]</span>
+          </div>
+          <div class="supported-text">Supported: PNG, JPG, PDF, Max 10MB</div>
+
+          <div class="preview-card">
+            <div class="card-photo">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="card-lines">
+              <div class="card-line"></div>
+              <div class="card-line short"></div>
+              <div class="card-line"></div>
+            </div>
+            <div class="card-qr"></div>
+          </div>
+        </label>
+      </div>
+
+      <button class="btn-verify" id="btn-verify-details" type="button">[Verify Details]</button>
+    </div>
+  </main>
+
+  <div class="camera-modal" id="camera-modal">
+    <div class="camera-modal-content">
+      <div class="camera-header">
+        <span>Take a Selfie</span>
+        <button id="close-modal-btn" type="button">&times;</button>
+      </div>
+      <div class="video-wrapper">
+        <video id="webcam-video" autoplay playsinline></video>
+      </div>
+      <button class="btn-snap" id="btn-take-snap" type="button">
+        <i class="fa-solid fa-circle"></i> Take Photo
+      </button>
+    </div>
+  </div>
+
+ 
+  <canvas id="snapshot-canvas" style="display:none;"></canvas>
+
+  <footer>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Support</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
